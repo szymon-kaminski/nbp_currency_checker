@@ -16,7 +16,7 @@ def fetch_exchange_rate(currency: str, date: str, table: str = "A") -> float:
     url = URL.format(table=table, code=currency.lower(), date=date)
     response = requests.get(url)
 
-    if not respons.ok:
+    if not response.ok:
         raise ValueError("No data for the given currencies or dates.")
     
     data = response.json()
