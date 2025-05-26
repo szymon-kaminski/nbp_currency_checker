@@ -25,6 +25,11 @@ def safe_format_date(date_str: str) -> str:
         sys.exit(1)
 
 
+def print_result(currency: str, rate: float, date: str) -> None:
+    print("\nCurrency Exchange Checker")
+    print(f"1 {currency.upper()} = {rate} PLN on {date}")
+
+
 def main():
     currency = get_currency()
     user_input_date = get_date()
@@ -36,8 +41,8 @@ def main():
         print(e)
         sys.exit(1)
 
-    print("\nCurrency Exchange Checker")
-    print(f"1 {currency.upper()} = {exchange_rate} PLN on {formatted_date}")
+    print_result(currency, exchange_rate, formatted_date)
+
 
 if __name__ == "__main__":
     main()
