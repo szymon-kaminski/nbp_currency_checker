@@ -15,7 +15,22 @@ def get_date() -> str:
         return sys.argv[2]
     except IndexError:
         return input("Enter the date (e.g. 2025-05-26): ").strip()
-    
 
-currency = get_currency()
-user_input_date = get_date()
+
+def safe_format_date(date_str: str) -> str:
+    try:
+        return format_date(date_str)
+    except ValueError as e:
+        print(e)
+        sys.exit(1)
+
+
+def main():
+    currency = get_currency()
+    user_input_date = get_date()
+    formatted_date = safe_format_date(user_input_date)
+
+
+if __name__ == "__main__":
+    main()
+        
