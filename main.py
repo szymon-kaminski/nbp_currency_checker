@@ -30,6 +30,11 @@ def print_result(currency: str, rate: float, date: str) -> None:
     print(f"1 {currency.upper()} = {rate} PLN on {date}")
 
 
+def save_query_to_file(currency: str, rate: float, date: str) -> float:
+    with open("history.txt", "a", encoding="UTF-8") as file:
+        file.write(f"1 {currency.upper()} | {rate} PLN | {date}\n")
+
+
 def main():
     currency = get_currency()
     user_input_date = get_date()
@@ -43,6 +48,7 @@ def main():
 
     print_result(currency, exchange_rate, formatted_date)
 
+    save_query_to_file(currency, exchange_rate, formatted_date)
 
 if __name__ == "__main__":
     main()
