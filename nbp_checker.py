@@ -6,7 +6,7 @@ URL = 'https://api.nbp.pl/api/exchangerates/rates/{table}/{code}/{date}/?format=
 
 def format_date(date_str: str) -> str:
     try:
-        parsed_date = parser.parse(date_str)
+        parsed_date = parser.parse(date_str, dayfirst=True)
         return parsed_date.strftime("%Y-%m-%d")
     except Exception:
         raise ValueError("Wrong date format.")
