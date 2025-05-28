@@ -2,3 +2,7 @@ import pytest
 
 from nbp_checker import format_date, fetch_exchange_rate
 
+def test_format_date():
+    assert format_date("2024-1-2") == "2024-01-02"
+    assert format_date("02.01.2024") == "2024-01-02"
+    assert format_date("January 2, 2024") == "2024-01-02"
