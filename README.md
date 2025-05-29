@@ -24,6 +24,7 @@ You can install the dependencies with:
 ```bash
 pip install requests python-dateutil
 ```
+
 ### Usage
 
 Run the program from the command line:
@@ -48,6 +49,7 @@ If arguments are missing, the program will ask for input interactively.
 Currency Exchange Checker
 1 USD = 4.2946 PLN on 2025-05-26
 ```
+
 ### History Logging
 
 Each query is appended to a history.txt file in the project directory, e.g.:
@@ -55,11 +57,36 @@ Each query is appended to a history.txt file in the project directory, e.g.:
 ```
 1 USD | 4.2946 PLN | 2025-05-26
 ```
+
+### Running Tests
+
+We use `pytest` to run unit tests.
+
+To run the tests, execute:
+```bash
+pytest
+```
+This will run all test cases from ```test_nbp_checker.py.```
+
+### Sample Error Output
+
+If you provide an invalid date or currency, you will get clear feedback:
+```
+Error: Could not retrieve exchange rate for XXX on 1800-01-01
+```
+
+### API Reference
+
+Data is fetched using the official NBP Web API. 
+You can explore available endpoints and their formats in the NBP documentation.
+
 ### Project Structure
 
 main.py — main script handling user input and output
 
 nbp_checker.py — module with functions to format dates and fetch exchange rates from NBP API
+
+test_nbp_checker.py — unit tests for main functions  
 
 history.txt — log file created at runtime to save query history (not tracked in Git)
 
