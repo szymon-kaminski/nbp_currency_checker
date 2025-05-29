@@ -14,3 +14,6 @@ def test_fetch_exchange_rate_valid():
     assert rate > 0
 
 
+def test_fetch_exchange_rate_invalid_date():
+    with pytest.raises(ValueError):
+        fetch_exchange_rate("USD", "01-01-1700")
