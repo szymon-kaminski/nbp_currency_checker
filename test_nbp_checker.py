@@ -22,4 +22,8 @@ def test_fetch_exchange_rate_invalid_date():
 def test_fetch_exchange_rate_invalid_currency():
     with pytest.raises(ValueError):
         fetch_exchange_rate("ABC", "06-05-2025")
-        
+
+
+def test_fetch_exchange_rate_empty_currency():
+    with pytest.raises(ValueError):
+        fetch_exchange_rate("", "06-05-2025")        
