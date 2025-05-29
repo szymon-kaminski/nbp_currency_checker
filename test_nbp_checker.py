@@ -17,3 +17,9 @@ def test_fetch_exchange_rate_valid():
 def test_fetch_exchange_rate_invalid_date():
     with pytest.raises(ValueError):
         fetch_exchange_rate("USD", "01-01-1700")
+
+
+def test_fetch_exchange_rate_invalid_currency():
+    with pytest.raises(ValueError):
+        fetch_exchange_rate("ABC", "06-05-2025")
+        
